@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2P73L29BH7"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2P73L29BH7');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>교체알리미 — 소모품 교체주기 총정리 + D-day 알림 (정수기 필터·면도날·칫솔·렌즈)</title>
+<meta name="description" content="정수기 필터, 공기청정기 필터, 면도날, 칫솔모, 콘택트렌즈, 수세미 등 소모품 교체주기를 출처와 함께 정리했습니다. 마지막 교체일만 입력하면 다음 교체일 D-day를 계산하고, 우리집 교체 대시보드로 임박 순 관리까지. 무료·설치 없음.">
+<link rel="canonical" href="https://maestro24.github.io/replacelab/">
+<meta property="og:title" content="교체알리미 — 소모품 교체주기 + D-day 대시보드">
+<meta property="og:description" content="정수기 필터·면도날·칫솔·렌즈 등 소모품 교체주기를 출처와 함께 정리하고, 마지막 교체일로 다음 교체일 D-day를 계산합니다.">
+<meta property="og:url" content="https://maestro24.github.io/replacelab/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="교체알리미">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232563eb'/%3E%3Cpath d='M23 9a9 9 0 10.5 8.5' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M23 5v5h-5' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="./css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "교체알리미 (ReplaceLab)",
+      "url": "https://maestro24.github.io/replacelab/",
+      "description": "소모품 교체주기 정보 DB와 마지막 교체일 기반 D-day 계산기, 우리집 교체 대시보드를 제공하는 무료 웹앱.",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "ko",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "정수기 필터 교체주기는 얼마인가요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "역삼투(RO) 정수기 기준 전처리(세디먼트) 필터와 카본 필터는 6~12개월, RO 멤브레인은 약 24~36개월마다 교체가 권장됩니다. 수질이 탁하거나 사용량이 많으면 더 자주 교체해야 합니다. (출처: RO 정수기 유지관리 가이드)" }
+        },
+        {
+          "@type": "Question",
+          "name": "칫솔은 얼마나 자주 바꿔야 하나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "미국치과협회(ADA)는 칫솔과 전동칫솔모를 약 3~4개월마다 교체하도록 권장합니다. 칫솔모가 벌어지면 그 전이라도 교체하는 것이 좋습니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "면도날 교체 주기는 어떻게 되나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "질레트(Gillette)는 면도날을 5~7회 사용마다(대략 2~3주) 교체하도록 안내합니다. 3중날은 약 15회, 5중날은 약 20회가 기준이며, 당김·자극이 느껴지거나 윤활밴드 색이 빠지면 교체 신호입니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "공기청정기 필터는 언제 갈아야 하나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "헤파(HEPA) 필터는 6~12개월, 탈취용 활성탄 필터는 3~6개월마다 교체가 권장됩니다. 반려동물이 있거나 24시간 가동하면 30~40% 더 빨리 교체해야 합니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "콘택트렌즈 케이스와 세정액은 얼마나 자주 교체하나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "미국 식품의약국(FDA)은 렌즈 케이스를 3개월마다 교체하도록 권장합니다. 세정액은 개봉 후 오래되면 소독력이 떨어지므로 유통기한 이내에 사용하고 절대 재사용하지 마세요." }
+        },
+        {
+          "@type": "Question",
+          "name": "교체알리미에 입력한 정보는 저장되나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "우리집 교체 대시보드의 저장 내용은 브라우저의 localStorage에만 저장되며 서버로 전송되지 않습니다. 같은 브라우저에서 다시 열면 유지되고, 브라우저 데이터를 지우면 함께 삭제됩니다." }
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "소모품별 권장 교체주기",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "정수기 카본 필터 — 6~12개월" },
+        { "@type": "ListItem", "position": 2, "name": "공기청정기 헤파 필터 — 6~12개월" },
+        { "@type": "ListItem", "position": 3, "name": "칫솔·전동칫솔모 — 3~4개월" },
+        { "@type": "ListItem", "position": 4, "name": "면도날 — 5~7회(약 2~3주)" },
+        { "@type": "ListItem", "position": 5, "name": "콘택트렌즈 케이스 — 3개월" },
+        { "@type": "ListItem", "position": 6, "name": "수세미 — 주 1회" }
+      ]
+    }
+  ]
+}
+</script>
+<meta property="og:image" content="https://maestro24.github.io/replacelab/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://maestro24.github.io/replacelab/assets/og-image.png">
+</head>
+<body>
+<header class="site-header"><div class="header-inner">
+  <a class="brand" href="./index.html">🔁 교체알리미</a>
+  <nav class="site-nav">
+    <a href="#db">교체주기표</a>
+    <a href="#calc">D-day 계산</a>
+    <a href="#dash">내 대시보드</a>
+    <a href="#detail">품목별</a>
+  </nav>
+</div></header>
+
+<main class="container">
+  <h1 class="page-title">소모품 교체주기 총정리 + D-day 알림</h1>
+  <p class="page-desc">"이거 언제 갈았더라?"를 끝내는 도구. 정수기 필터·면도날·칫솔·렌즈·수세미까지 <strong>출처 있는 권장 교체주기</strong>를 정리하고, 마지막 교체일만 넣으면 <strong>다음 교체일 D-day</strong>를 계산합니다. 설치·가입 없이 무료.</p>
+
+  <div class="tool-grid">
+    <a class="tool-card" href="#db"><span class="icon">📋</span><h2>교체주기 DB</h2><p>품목별 권장 교체주기와 출처를 한 표로. 안 갈면 생기는 문제까지.</p></a>
+    <a class="tool-card" href="#calc"><span class="icon">📅</span><h2>D-day 계산기</h2><p>품목 선택 + 마지막 교체일 → 다음 교체 권장일과 남은 날짜.</p></a>
+    <a class="tool-card" href="#dash"><span class="icon">🏠</span><h2>우리집 대시보드</h2><p>여러 품목을 저장해 임박 순으로 관리. 브라우저에만 저장.</p></a>
+  </div>
+
+  <!-- ======================= 교체주기 DB 표 ======================= -->
+  <section class="card section-anchor" id="db">
+    <h2>📋 소모품 교체주기 DB</h2>
+    <p class="sub">권장 주기는 아래 출처(제조사·공신력 기관) 기준입니다. 사용 환경에 따라 달라질 수 있고, 위생·안전 품목은 상태를 함께 확인하세요.</p>
+    <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>품목</th><th>권장 교체주기</th><th>근거(출처)</th><th>재구매</th></tr></thead>
+        <tbody>
+          <tr><td><a href="#water_sediment">💧 정수기 전처리(세디먼트) 필터</a></td><td class="cycle">6~12개월</td><td class="src"><a href="https://espwaterproducts.com/pages/reverse-osmosis-maintenance" target="_blank" rel="noopener">RO 정수기 유지관리 가이드</a></td><td><a class="btn-buy" data-coupang-key="filter_water" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">쿠팡</a></td></tr>
+          <tr><td><a href="#water_carbon">💧 정수기 카본 필터(프리/포스트)</a></td><td class="cycle">6~12개월</td><td class="src"><a href="https://espwaterproducts.com/pages/reverse-osmosis-maintenance" target="_blank" rel="noopener">RO 정수기 유지관리 가이드</a></td><td><a class="btn-buy" data-coupang-key="filter_water" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">쿠팡</a></td></tr>
+          <tr><td><a href="#water_membrane">💧 정수기 RO 멤브레인</a></td><td class="cycle">24~36개월</td><td class="src"><a href="https://espwaterproducts.com/pages/reverse-osmosis-maintenance" target="_blank" rel="noopener">RO 정수기 유지관리 가이드</a></td><td><a class="btn-buy" data-coupang-key="filter_water" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">쿠팡</a></td></tr>
+          <tr><td><a href="#air_hepa">🌀 공기청정기 헤파 필터</a></td><td class="cycle">6~12개월</td><td class="src"><a href="https://www.iqair.com/newsroom/how-often-should-you-change-an-air-purifier-filter" target="_blank" rel="noopener">IQAir 필터 교체 가이드</a></td><td><a class="btn-buy" data-coupang-key="filter_air" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">쿠팡</a></td></tr>
+          <tr><td><a href="#air_carbon">🌀 공기청정기 탈취(활성탄) 필터</a></td><td class="cycle">3~6개월</td><td class="src"><a href="https://www.iqair.com/newsroom/how-often-should-you-change-an-air-purifier-filter" target="_blank" rel="noopener">IQAir 필터 교체 가이드</a></td><td><a class="btn-buy" data-coupang-key="filter_air" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">쿠팡</a></td></tr>
+          <tr><td><a href="#aircon_filter">❄️ 에어컨 필터(세척형)</a></td><td class="cycle">2주마다 청소</td><td class="src"><span>제조사(삼성·LG) 사용설명서</span></td><td><a class="btn-buy" data-coupang-key="filter_aircon" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">쿠팡</a></td></tr>
+          <tr><td><a href="#washer_clean">🫧 세탁조 청소(통세척)</a></td><td class="cycle">월 1회</td><td class="src"><span>제조사(삼성·LG) 통세척 권장</span></td><td><a class="btn-buy" data-coupang-key="washer_cleaner" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">쿠팡</a></td></tr>
+          <tr><td><a href="#water_cock">🚰 정수기 코크 살균·점검</a></td><td class="cycle">약 2~6개월</td><td class="src"><span>제조사 정기 방문점검 권장</span></td><td><a class="btn-buy" data-coupang-key="water_purifier" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">쿠팡</a></td></tr>
+          <tr><td><a href="#toothbrush">🪥 칫솔 / 전동칫솔모</a></td><td class="cycle">3~4개월</td><td class="src"><a href="https://www.ada.org/resources/ada-library/oral-health-topics/toothbrushes" target="_blank" rel="noopener">미국치과협회(ADA)</a></td><td><a class="btn-buy" data-coupang-key="toothbrush_head" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">쿠팡</a></td></tr>
+          <tr><td><a href="#razor_blade">🪒 면도날</a></td><td class="cycle">5~7회(약 2~3주)</td><td class="src"><a href="https://gillette.com/en-us/shaving-tips/how-to-shave/how-often-should-you-change-your-razor" target="_blank" rel="noopener">질레트(Gillette)</a></td><td><a class="btn-buy" data-coupang-key="razor_blade" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">쿠팡</a></td></tr>
+          <tr><td><a href="#contact_lens">👁️ 콘택트렌즈</a></td><td class="cycle">제품 표시 주기</td><td class="src"><span>제조사 표시·식약처 기준</span></td><td><a class="btn-buy" data-coupang-key="contact_lens" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">쿠팡</a></td></tr>
+          <tr><td><a href="#lens_solution">🧴 렌즈 세정액(개봉 후)</a></td><td class="cycle">약 3개월</td><td class="src"><a href="https://www.fda.gov/consumers/womens-health-topics/contact-lens-care" target="_blank" rel="noopener">미국 FDA</a></td><td><a class="btn-buy" data-coupang-key="lens_solution" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">쿠팡</a></td></tr>
+          <tr><td><a href="#lens_case">🔵 렌즈 케이스</a></td><td class="cycle">3개월</td><td class="src"><a href="https://www.fda.gov/consumers/womens-health-topics/contact-lens-care" target="_blank" rel="noopener">미국 FDA</a></td><td><a class="btn-buy" data-coupang-key="lens_case" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">쿠팡</a></td></tr>
+          <tr><td><a href="#towel">🧻 수건</a></td><td class="cycle">약 2~3년</td><td class="src"><span>일반 위생 권장(상태 기준)</span></td><td><a class="btn-buy" data-coupang-key="towel" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">쿠팡</a></td></tr>
+          <tr><td><a href="#pillow">🛏️ 베개</a></td><td class="cycle">약 1~2년</td><td class="src"><span>일반 위생 권장(상태 기준)</span></td><td><a class="btn-buy" data-coupang-key="pillow" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">쿠팡</a></td></tr>
+          <tr><td><a href="#sponge">🧽 수세미 / 스펀지</a></td><td class="cycle">주 1회</td><td class="src"><a href="https://www.canr.msu.edu/news/keep_your_sponges_and_dish_cloths_bacteria_free_this_summer" target="_blank" rel="noopener">MSU 식품안전</a></td><td><a class="btn-buy" data-coupang-key="sponge" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">쿠팡</a></td></tr>
+          <tr><td><a href="#dishcloth">🧼 행주</a></td><td class="cycle">주 1회 이내</td><td class="src"><a href="https://www.canr.msu.edu/news/keep_your_sponges_and_dish_cloths_bacteria_free_this_summer" target="_blank" rel="noopener">MSU 식품안전</a></td><td><a class="btn-buy" data-coupang-key="dishcloth" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">쿠팡</a></td></tr>
+          <tr><td><a href="#cutting_board">🔪 도마</a></td><td class="cycle">홈 생기면(약 1년)</td><td class="src"><span>일반 위생 권장(손상 기준)</span></td><td><a class="btn-buy" data-coupang-key="cutting_board" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">쿠팡</a></td></tr>
+          <tr><td><a href="#frypan">🍳 코팅 프라이팬</a></td><td class="cycle">약 1~2년</td><td class="src"><span>일반 사용 권장(코팅 기준)</span></td><td><a class="btn-buy" data-coupang-key="frypan" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">쿠팡</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ======================= D-day 계산기 ======================= -->
+  <section class="card section-anchor" id="calc">
+    <h2>📅 교체일 D-day 계산기</h2>
+    <p class="sub">품목을 고르고 마지막으로 교체한 날짜를 입력하면 다음 교체 권장일과 D-day를 알려드립니다.</p>
+    <div class="field">
+      <label for="calc-item">품목</label>
+      <select id="calc-item"><option value="">품목을 선택하세요</option></select>
+    </div>
+    <div class="field" id="calc-variant-wrap" style="display:none">
+      <label for="calc-variant">종류</label>
+      <select id="calc-variant"></select>
+    </div>
+    <div class="field" id="calc-date-field">
+      <label for="calc-date">마지막 교체일</label>
+      <input type="date" id="calc-date">
+      <div class="error" id="calc-date-error">날짜를 올바르게 입력하세요.</div>
+    </div>
+    <div class="btn-row">
+      <button class="btn" type="button" id="calc-btn">D-day 계산</button>
+    </div>
+    <div class="dday-result" id="calc-result"></div>
+  </section>
+
+  <!-- ======================= 우리집 대시보드 ======================= -->
+  <section class="card section-anchor" id="dash">
+    <h2>🏠 우리집 교체 대시보드</h2>
+    <p class="sub">저장한 품목을 <strong>교체 임박 순</strong>으로 보여줍니다. <span id="dash-summary"></span></p>
+    <div id="dash-body"></div>
+    <p class="dash-privacy">🔒 저장 내용은 이 브라우저(localStorage)에만 있습니다. 서버로 전송되지 않으며, 다른 기기와 동기화되지 않습니다.</p>
+  </section>
+
+  <!-- ======================= 품목별 상세 (SEO 진입점) ======================= -->
+  <section class="card section-anchor seo-content" id="detail">
+    <h2>품목별 교체주기 상세</h2>
+    <p class="sub">"○○ 교체주기"가 궁금해서 오셨다면, 아래에서 품목별 권장 주기·근거·방치 시 문제·재구매를 확인하세요.</p>
+
+    <h3 style="margin-top:20px">💧 물·공기 필터</h3>
+
+    <div class="item-detail section-anchor" id="water_sediment">
+      <h3>💧 정수기 전처리(세디먼트) 필터 교체주기</h3>
+      <p class="cycle-line">권장 교체주기: <b>6~12개월</b></p>
+      <p>녹·모래·이물질이 뒷단 필터로 넘어가 카본·멤브레인 수명을 단축시키고 정수 성능이 떨어집니다. 수질이 탁하거나 신축 건물이면 주기를 앞당기세요.</p>
+      <p class="src">근거: <a href="https://espwaterproducts.com/pages/reverse-osmosis-maintenance" target="_blank" rel="noopener">역삼투(RO) 정수기 유지관리 가이드 (ESP Water)</a></p>
+      <div class="btn-row"><a class="btn-buy" data-coupang-key="filter_water" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">🛒 쿠팡에서 재구매</a></div>
+    </div>
+
+    <div class="item-detail section-anchor" id="water_carbon">
+      <h3>💧 정수기 카본(활성탄) 필터 교체주기</h3>
+      <p class="cycle-line">권장 교체주기: <b>6~12개월</b> (프리/포스트 카본)</p>
+      <p>염소·냄새·유기물 제거력이 떨어지고, 방치하면 멤브레인이 염소에 손상됩니다. 물에서 냄새·맛이 달라지면 교체 신호입니다.</p>
+      <p class="src">근거: <a href="https://espwaterproducts.com/pages/reverse-osmosis-maintenance" target="_blank" rel="noopener">역삼투(RO) 정수기 유지관리 가이드 (ESP Water)</a></p>
+      <div class="btn-row"><a class="btn-buy" data-coupang-key="filter_water" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">🛒 쿠팡에서 재구매</a></div>
+    </div>
+
+    <div class="item-detail section-anchor" id="water_membrane">
+      <h3>💧 정수기 역삼투(RO) 멤브레인 교체주기</h3>
+      <p class="cycle-line">권장 교체주기: <b>24~36개월</b></p>
+      <p>정수량이 줄고 불순물·중금속 제거율이 떨어집니다. 전처리 필터를 제때 갈면 멤브레인이 오래갑니다. 정수 속도가 눈에 띄게 느려지면 점검하세요.</p>
+      <p class="src">근거: <a href="https://espwaterproducts.com/pages/reverse-osmosis-maintenance" target="_blank" rel="noopener">역삼투(RO) 정수기 유지관리 가이드 (ESP Water)</a></p>
+      <div class="btn-row"><a class="btn-buy" data-coupang-key="filter_water" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">🛒 쿠팡에서 재구매</a></div>
+    </div>
+
+    <div class="item-detail section-anchor" id="air_hepa">
+      <h3>🌀 공기청정기 헤파(HEPA) 필터 교체주기</h3>
+      <p class="cycle-line">권장 교체주기: <b>6~12개월</b></p>
+      <p>미세먼지 포집력이 떨어지고 풍량이 줄며, 포화된 필터가 오히려 오염원이 됩니다. 반려동물이 있거나 24시간 가동 시 30~40% 더 빨리 교체가 필요합니다.</p>
+      <p class="src">근거: <a href="https://www.iqair.com/newsroom/how-often-should-you-change-an-air-purifier-filter" target="_blank" rel="noopener">IQAir — 공기청정기 필터 교체 주기</a></p>
+      <div class="btn-row"><a class="btn-buy" data-coupang-key="filter_air" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">🛒 쿠팡에서 재구매</a></div>
+    </div>
+
+    <div class="item-detail section-anchor" id="air_carbon">
+      <h3>🌀 공기청정기 탈취(활성탄) 필터 교체주기</h3>
+      <p class="cycle-line">권장 교체주기: <b>3~6개월</b></p>
+      <p>냄새·유해가스 흡착력이 헤파보다 먼저 소진됩니다. 요리·흡연 등 냄새 발생이 많으면 더 자주 교체하세요.</p>
+      <p class="src">근거: <a href="https://www.iqair.com/newsroom/how-often-should-you-change-an-air-purifier-filter" target="_blank" rel="noopener">IQAir — 공기청정기 필터 교체 주기</a></p>
+      <div class="btn-row"><a class="btn-buy" data-coupang-key="filter_air" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">🛒 쿠팡에서 재구매</a></div>
+    </div>
+
+    <div class="item-detail section-anchor" id="aircon_filter">
+      <h3>❄️ 에어컨 필터 교체·청소주기</h3>
+      <p class="cycle-line">권장: <b>2주마다 청소</b> (세척형)</p>
+      <p>먼지가 쌓이면 냉방 효율이 떨어지고 전기요금이 늘며, 곰팡이·냄새의 원인이 됩니다. 대부분 물세척 후 완전히 말려 재사용하며, 부직포·항균 필터는 별도 교체형입니다.</p>
+      <p class="src">근거: 제조사(삼성·LG) 사용설명서 권장</p>
+      <div class="btn-row"><a class="btn-buy" data-coupang-key="filter_aircon" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">🛒 쿠팡에서 항균필터 보기</a></div>
+    </div>
+
+    <div class="item-detail section-anchor" id="washer_clean">
+      <h3>🫧 세탁조 청소(통세척) 주기</h3>
+      <p class="cycle-line">권장: <b>월 1회</b></p>
+      <p>세탁조 안쪽에 세제 찌꺼기·곰팡이가 끼면 빨래에서 냄새가 나고 위생이 나빠집니다. 통세척 코스나 전용 세정제를 쓰고, 문·고무패킹은 사용 후 열어 말립니다.</p>
+      <p class="src">근거: 제조사(삼성·LG) 통세척 권장</p>
+      <div class="btn-row"><a class="btn-buy" data-coupang-key="washer_cleaner" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">🛒 쿠팡에서 세탁조 세정제 보기</a></div>
+    </div>
+
+    <div class="item-detail section-anchor" id="water_cock">
+      <h3>🚰 정수기 코크(추출구) 살균·점검 주기</h3>
+      <p class="cycle-line">권장: <b>약 2~6개월</b> 정기 점검</p>
+      <p>물이 나오는 코크는 공기와 접촉해 세균·물때가 생기기 쉬운 부위입니다. 렌탈 정수기는 정기점검 일정을, 자가관리형은 코크 살균 주기를 등록해 두세요.</p>
+      <p class="src">근거: 제조사 정기 방문점검 권장</p>
+      <div class="btn-row"><a class="btn-buy" data-coupang-key="water_purifier" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">🛒 쿠팡에서 살균용품 보기</a></div>
+    </div>
+
+    <h3 style="margin-top:24px">🪥 위생·욕실</h3>
+
+    <div class="item-detail section-anchor" id="toothbrush">
+      <h3>🪥 칫솔 / 전동칫솔모 교체주기</h3>
+      <p class="cycle-line">권장 교체주기: <b>3~4개월</b></p>
+      <p>칫솔모가 벌어지면 치태 제거력이 떨어지고 잇몸에 자극을 줍니다. 감기·독감 후에도 교체가 권장됩니다. 칫솔모가 벌어지면 3개월 전이라도 교체하세요.</p>
+      <p class="src">근거: <a href="https://www.ada.org/resources/ada-library/oral-health-topics/toothbrushes" target="_blank" rel="noopener">미국치과협회(ADA)</a></p>
+      <div class="btn-row"><a class="btn-buy" data-coupang-key="toothbrush_head" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">🛒 쿠팡에서 재구매</a></div>
+    </div>
+
+    <div class="item-detail section-anchor" id="razor_blade">
+      <h3>🪒 면도날 교체주기</h3>
+      <p class="cycle-line">권장 교체주기: <b>5~7회 사용(약 2~3주)</b></p>
+      <p>날이 무뎌지면 당김·자극·베임과 모낭염 위험이 커집니다. 윤활밴드 색이 빠지면 교체 신호입니다. 3중날(마하3)은 약 15회, 5중날(퓨전5)은 약 20회가 기준입니다.</p>
+      <p class="src">근거: <a href="https://gillette.com/en-us/shaving-tips/how-to-shave/how-often-should-you-change-your-razor" target="_blank" rel="noopener">질레트(Gillette) 공식 가이드</a></p>
+      <div class="btn-row"><a class="btn-buy" data-coupang-key="razor_blade" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">🛒 쿠팡에서 재구매</a></div>
+    </div>
+
+    <div class="item-detail section-anchor" id="contact_lens">
+      <h3>👁️ 콘택트렌즈 교체주기 (원데이·2주·한달·1년)</h3>
+      <p class="cycle-line">권장: <b>제품에 표시된 사용주기</b> — 원데이 1일 / 2주용 14일 / 한달용 30일 / 1년용 365일</p>
+      <p>표시 주기를 넘겨 착용하면 단백질 침착·산소 투과 저하로 충혈·각막 손상·감염 위험이 커집니다. 개봉·착용 시작일을 기준으로 계산하고, 하루라도 넘기지 마세요.</p>
+      <p class="src">근거: 제조사 표시 사용주기 · 식품의약품안전처 의료기기 기준</p>
+      <div class="btn-row"><a class="btn-buy" data-coupang-key="contact_lens" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">🛒 쿠팡에서 재구매</a></div>
+    </div>
+
+    <div class="item-detail section-anchor" id="lens_solution">
+      <h3>🧴 렌즈 세정액 교체주기 (개봉 후)</h3>
+      <p class="cycle-line">권장: <b>개봉 후 약 3개월 · 유통기한 이내</b></p>
+      <p>개봉 후 오래된 세정액은 소독력이 떨어져 세균·아메바 오염 위험이 커집니다. 매번 새 세정액으로 헹구고, 남은 액을 재사용하거나 물을 타지 마세요.</p>
+      <p class="src">근거: <a href="https://www.fda.gov/consumers/womens-health-topics/contact-lens-care" target="_blank" rel="noopener">미국 식품의약국(FDA) 콘택트렌즈 관리</a></p>
+      <div class="btn-row"><a class="btn-buy" data-coupang-key="lens_solution" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">🛒 쿠팡에서 재구매</a></div>
+    </div>
+
+    <div class="item-detail section-anchor" id="lens_case">
+      <h3>🔵 콘택트렌즈 케이스 교체주기</h3>
+      <p class="cycle-line">권장 교체주기: <b>3개월</b></p>
+      <p>케이스 표면에 생기는 바이오필름(세균막)은 소독액으로 잘 제거되지 않아 눈 감염의 주요 원인입니다. 사용 후 세정액으로 헹구고 뒤집어 완전히 말리세요.</p>
+      <p class="src">근거: <a href="https://www.fda.gov/consumers/womens-health-topics/contact-lens-care" target="_blank" rel="noopener">미국 식품의약국(FDA) 콘택트렌즈 관리</a></p>
+      <div class="btn-row"><a class="btn-buy" data-coupang-key="lens_case" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">🛒 쿠팡에서 재구매</a></div>
+    </div>
+
+    <div class="item-detail section-anchor" id="towel">
+      <h3>🧻 수건 교체주기</h3>
+      <p class="cycle-line">권장: <b>약 2~3년</b> (상태 기준)</p>
+      <p>오래된 수건은 흡수력이 떨어지고 세탁해도 빠지지 않는 냄새(세균·곰팡이)가 남습니다. 빨아도 쉰내가 남거나 뻣뻣해지면 교체하고, 3~4회 사용마다 세탁을 권장합니다.</p>
+      <p class="src">근거: 일반 위생 권장 (냄새·경화 시 교체)</p>
+      <div class="btn-row"><a class="btn-buy" data-coupang-key="towel" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">🛒 쿠팡에서 재구매</a></div>
+    </div>
+
+    <div class="item-detail section-anchor" id="pillow">
+      <h3>🛏️ 베개 교체주기</h3>
+      <p class="cycle-line">권장: <b>약 1~2년</b> (상태 기준)</p>
+      <p>속통이 꺼지면 목·어깨를 제대로 받치지 못하고, 땀·각질로 진드기·세균이 늘어납니다. 반으로 접었다 놓았을 때 복원되지 않으면 교체 시기이며, 베갯잇은 주 1회 세탁하세요.</p>
+      <p class="src">근거: 일반 위생 권장 (형태 복원·위생 기준)</p>
+      <div class="btn-row"><a class="btn-buy" data-coupang-key="pillow" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">🛒 쿠팡에서 재구매</a></div>
+    </div>
+
+    <h3 style="margin-top:24px">🍳 주방</h3>
+
+    <div class="item-detail section-anchor" id="sponge">
+      <h3>🧽 수세미 / 스펀지 교체주기</h3>
+      <p class="cycle-line">권장 교체주기: <b>주 1회</b></p>
+      <p>주방에서 가장 오염된 물건으로 꼽힙니다. 대장균·살모넬라 등 식중독균의 서식처가 됩니다. 냄새가 나기 전에 교체하고, 매일 요리·생고기를 다루면 더 자주 바꾸세요.</p>
+      <p class="src">근거: <a href="https://www.canr.msu.edu/news/keep_your_sponges_and_dish_cloths_bacteria_free_this_summer" target="_blank" rel="noopener">미시간주립대 확장교육(MSU Extension) 식품안전</a></p>
+      <div class="btn-row"><a class="btn-buy" data-coupang-key="sponge" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">🛒 쿠팡에서 재구매</a></div>
+    </div>
+
+    <div class="item-detail section-anchor" id="dishcloth">
+      <h3>🧼 행주 교체주기</h3>
+      <p class="cycle-line">권장 교체주기: <b>주 1회 이내</b></p>
+      <p>젖은 행주는 세균이 급증합니다. 오염된 행주로 조리대를 닦으면 오히려 균을 퍼뜨립니다. 삶거나 소독해 재사용하되 낡으면 교체하고, 사용 후 펴서 말립니다.</p>
+      <p class="src">근거: <a href="https://www.canr.msu.edu/news/keep_your_sponges_and_dish_cloths_bacteria_free_this_summer" target="_blank" rel="noopener">미시간주립대 확장교육(MSU Extension) 식품안전</a></p>
+      <div class="btn-row"><a class="btn-buy" data-coupang-key="dishcloth" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">🛒 쿠팡에서 재구매</a></div>
+    </div>
+
+    <div class="item-detail section-anchor" id="cutting_board">
+      <h3>🔪 도마 교체주기</h3>
+      <p class="cycle-line">권장: <b>칼자국 홈이 깊어지면 교체 (약 1년)</b></p>
+      <p>칼자국 홈에 세균·곰팡이가 파고들면 세척으로 제거되지 않습니다. 생고기·채소용을 분리하고, 홈이 깊고 잘 지워지지 않는 얼룩이 생기면 교체하세요.</p>
+      <p class="src">근거: 일반 위생 권장 (표면 손상 기준)</p>
+      <div class="btn-row"><a class="btn-buy" data-coupang-key="cutting_board" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">🛒 쿠팡에서 재구매</a></div>
+    </div>
+
+    <div class="item-detail section-anchor" id="frypan">
+      <h3>🍳 코팅 프라이팬 교체주기</h3>
+      <p class="cycle-line">권장: <b>약 1~2년</b> (코팅 손상 시)</p>
+      <p>코팅이 벗겨지면 음식이 눌어붙고, 긁힌 코팅 조각이 음식에 섞일 수 있습니다. 긁힘·벗겨짐이 보이면 교체하고, 금속 조리도구·강한 세척은 코팅 수명을 줄입니다.</p>
+      <p class="src">근거: 일반 사용 권장 (코팅 상태 기준)</p>
+      <div class="btn-row"><a class="btn-buy" data-coupang-key="frypan" href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener">🛒 쿠팡에서 재구매</a></div>
+    </div>
+  </section>
+
+  <!-- ======================= 쿠팡 배너 ======================= -->
+  <aside class="promo" data-coupang>
+    <div class="coupang-wrap">
+      <a href="https://link.coupang.com/a/flCfhuxEJM" target="_blank" rel="sponsored noopener" referrerpolicy="unsafe-url"><img src="https://ads-partners.coupang.com/banners/1006097?trackingCode=AF8748009&subId=&traceId=V0-301-879dd1202e5c73b2-I1006097&w=728&h=90" alt="쿠팡 파트너스 배너" style="max-width:100%;height:auto" loading="lazy"></a>
+    </div>
+    <p class="promo-disclosure">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+  </aside>
+  <script>
+  setTimeout(function () {
+    document.querySelectorAll('[data-coupang]').forEach(function (el) {
+      var f = el.querySelector('iframe');
+      var m = el.querySelector('img');
+      var ok = (f && f.getBoundingClientRect().height >= 10) || (m && m.complete && m.naturalWidth > 0);
+      if (!ok) el.hidden = true;
+    });
+  }, 4000);
+  </script>
+
+  <!-- ======================= SEO 콘텐츠 / FAQ ======================= -->
+  <section class="card seo-content">
+    <h2>소모품 교체주기, 왜 챙겨야 할까요?</h2>
+    <p>정수기 필터·공기청정기 필터·면도날·칫솔·콘택트렌즈처럼 <strong>주기적으로 갈아줘야 하는 소모품</strong>은 제때 교체하지 않으면 성능이 떨어지는 것을 넘어 위생·건강 문제로 이어집니다. 문제는 "언제 갈았는지" 기억하기 어렵다는 것. 교체알리미는 품목별 <strong>출처 있는 권장 교체주기</strong>를 정리하고, 마지막 교체일만 입력하면 다음 교체 시점을 <strong>D-day</strong>로 알려줍니다.</p>
+    <h3>교체주기 수치의 근거</h3>
+    <p>이 사이트의 권장 주기는 임의 추정이 아니라 제조사·공신력 기관의 안내를 근거로 합니다. 예를 들어 칫솔 3~4개월은 <a href="https://www.ada.org/resources/ada-library/oral-health-topics/toothbrushes" target="_blank" rel="noopener">미국치과협회(ADA)</a>, 렌즈 케이스 3개월은 <a href="https://www.fda.gov/consumers/womens-health-topics/contact-lens-care" target="_blank" rel="noopener">미국 식품의약국(FDA)</a>, 면도날 5~7회는 <a href="https://gillette.com/en-us/shaving-tips/how-to-shave/how-often-should-you-change-your-razor" target="_blank" rel="noopener">질레트</a>, 수세미 주 1회는 <a href="https://www.canr.msu.edu/news/keep_your_sponges_and_dish_cloths_bacteria_free_this_summer" target="_blank" rel="noopener">미시간주립대 식품안전 자료</a>를 따릅니다. 각 품목 상세에 출처를 함께 표기했습니다.</p>
+    <p>다만 실제 교체 시점은 <strong>사용 환경</strong>(가족 수, 사용 강도, 수질·공기질 등)에 따라 달라질 수 있습니다. 특히 위생·안전 관련 품목은 권장 주기와 함께 <strong>상태(냄새·변형·손상)</strong>를 확인하세요. 본 정보는 일반적인 참고용이며 의료·안전 진단을 대체하지 않습니다.</p>
+    <h3>어떻게 쓰나요?</h3>
+    <p>① 위 <a href="#db">교체주기 DB 표</a>에서 내 품목의 권장 주기와 근거를 확인하고, ② <a href="#calc">D-day 계산기</a>에 마지막 교체일을 넣어 다음 교체 시점을 확인한 뒤, ③ <a href="#dash">우리집 대시보드</a>에 저장해 두면 다음에 방문했을 때 임박한 품목부터 한눈에 보입니다. 대시보드 내용은 브라우저에만 저장되며 서버로 전송되지 않습니다.</p>
+    <h3>자주 묻는 질문</h3>
+    <details class="faq"><summary>정수기 필터 교체주기는 얼마인가요?</summary><p>역삼투(RO) 정수기 기준 전처리(세디먼트)·카본 필터는 6~12개월, RO 멤브레인은 약 24~36개월마다 교체가 권장됩니다. 수질이 탁하거나 사용량이 많으면 더 자주 교체하세요.</p></details>
+    <details class="faq"><summary>칫솔은 얼마나 자주 바꿔야 하나요?</summary><p>미국치과협회(ADA)는 칫솔·전동칫솔모를 약 3~4개월마다 교체하도록 권장합니다. 칫솔모가 벌어지면 그 전이라도 교체하는 것이 좋습니다.</p></details>
+    <details class="faq"><summary>면도날 교체 주기는 어떻게 되나요?</summary><p>질레트는 5~7회 사용마다(대략 2~3주) 교체를 안내합니다. 3중날은 약 15회, 5중날은 약 20회가 기준이며, 당김·자극이 느껴지거나 윤활밴드 색이 빠지면 교체 신호입니다.</p></details>
+    <details class="faq"><summary>공기청정기 필터는 언제 갈아야 하나요?</summary><p>헤파 필터는 6~12개월, 탈취용 활성탄 필터는 3~6개월마다 교체가 권장됩니다. 반려동물이 있거나 24시간 가동하면 더 빨리 교체해야 합니다.</p></details>
+    <details class="faq"><summary>렌즈 케이스와 세정액은 얼마나 자주 교체하나요?</summary><p>FDA는 렌즈 케이스를 3개월마다 교체하도록 권장합니다. 세정액은 개봉 후 오래되면 소독력이 떨어지므로 유통기한 이내에 사용하고 절대 재사용하지 마세요.</p></details>
+    <details class="faq"><summary>입력한 정보는 저장되나요?</summary><p>우리집 대시보드 내용은 브라우저의 localStorage에만 저장되며 서버로 전송되지 않습니다. 같은 브라우저에서 다시 열면 유지되고, 브라우저 데이터를 지우면 함께 삭제됩니다.</p></details>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p class="disclaimer">권장 교체주기는 제조사·공신력 기관 안내를 참고한 일반 정보이며, 사용 환경에 따라 달라질 수 있습니다. 위생·안전 관련은 상태를 함께 확인하세요.</p>
+  <p class="links"><a href="https://maestro24.github.io/moneysim/">머니시뮬</a> · <a href="https://maestro24.github.io/salarylab/">연봉계산소</a> · <a href="https://maestro24.github.io/stockcal/">주식달력</a></p>
+  <p>© 2026 교체알리미 (ReplaceLab)</p>
+</footer>
+
+<div class="side-rail side-l" data-coupang>
+  <script src="https://ads-partners.coupang.com/g.js"></script>
+  <script>new PartnersCoupang.G({ id: 1006093, template: "carousel", trackingCode: "AF8748009", width: "160", height: "600", tsource: "" });</script>
+</div>
+<div class="side-rail side-r" data-coupang>
+  <script>new PartnersCoupang.G({ id: 1006093, template: "carousel", trackingCode: "AF8748009", width: "160", height: "600", tsource: "" });</script>
+</div>
+
+<script src="./js/coupang.js"></script>
+<script type="module" src="./js/app.js"></script>
+</body>
+</html>
