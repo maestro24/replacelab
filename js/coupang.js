@@ -10,7 +10,7 @@
  * "이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다." (고지문 필수)
  */
 (function () {
-  var GENERIC = 'https://link.coupang.com/a/flCfhuxEJM'; // 발급받은 제네릭 딥링크
+  var GENERIC = 'https://link.coupang.com/a/fnxIjnErXE'; // 발급받은 제네릭 딥링크(전 품목 공용)
 
   // 품목키 → 전용 딥링크 (미설정 시 null → 제네릭 사용). TODO: 파트너스 딥링크로 교체.
   var LINKS = {
